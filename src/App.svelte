@@ -2,18 +2,19 @@
   import PasswordDisplay from "./PasswordDisplay/PasswordDisplay.svelte";
 
   export let name;
+
+  let password = 'Simple Test';
 </script>
 
 <main>
-  <h1>Hello, <span class="cool-text">{name}!</span></h1>
-  <PasswordDisplay password="Cool" />
+  <input bind:value={password} type="text">
+  <PasswordDisplay password={password} />
 </main>
 
 <style>
   main {
     text-align: center;
     padding: 1em;
-    max-width: 240px;
     margin: 0 auto;
   }
 
