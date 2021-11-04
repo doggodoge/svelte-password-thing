@@ -1,12 +1,11 @@
 <script>
   import PasswordDisplay from "./PasswordDisplay/PasswordDisplay.svelte";
 
-  export let name;
-
   let password = 'Simple Test';
 </script>
 
 <main>
+  <h1>Cool <span class="cool-text">Pass</span></h1>
   <input bind:value={password} type="text">
   <PasswordDisplay password={password} />
 </main>

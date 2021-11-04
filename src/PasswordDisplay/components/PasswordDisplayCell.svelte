@@ -2,17 +2,14 @@
   export let character;
   export let index;
 
-  function checkIfSpecialPasswordCharacter(char) {
+  function isSpecialPasswordCharacter(char) {
     const specialPasswordCharacters = ` !"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~`;
     return [...specialPasswordCharacters].find(char);
   }
-
-
-  const isSpecialPasswordCharacter = checkIfSpecialPasswordCharacter(character);
 </script>
 
 <div class="container {index % 2 === 0 ? 'even-cell' : 'odd-cell'}">
-  <p class="character {isSpecialPasswordCharacter ? 'special-character' : ''}">{character}</p>
+  <p class="character {() => isSpecialPasswordCharacter(character) ? 'special-character' : ''}">{character}</p>
   <p class="number">{index}</p>
 </div>
 
