@@ -5,7 +5,7 @@
   export let index;
 
   function isSpecialPasswordCharacter(char) {
-    const specialPasswordCharacters = ` !"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~`;
+    const specialPasswordCharacters = ` !"#£$%&'()*+,-./:;<=>?@[\\]^_\`{|}~`;
     return [...specialPasswordCharacters].includes(char);
   }
 
