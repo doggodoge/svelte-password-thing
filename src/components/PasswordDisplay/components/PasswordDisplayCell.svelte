@@ -13,23 +13,27 @@
     return !isNaN(char);
   }
 
-  function handleSpecial() {
+  function getSpecial() {
     return isSpecialPasswordCharacter(character) ? 'special-character' : '';
   }
 
-  function handleNumber() {
+  function getNumber() {
     return isNumber(character) ? 'number-character' : '';
+  }
+
+  function getCellBackgroundColor() {
+    return index % 2 === 0 ? 'even-cell' : 'odd-cell';
   }
 </script>
 
 <div
   transition:fly={{ y: 50, duration: 100 }}
-  class="container {index % 2 === 0 ? 'even-cell' : 'odd-cell'}"
+  class="container {getCellBackgroundColor()}"
 >
-  <p class="character {handleSpecial()} {handleNumber()}">
+  <p class="character {getSpecial()} {getNumber()}">
     {character}
   </p>
-  <p class="number">{index}</p>
+  <p class="index">{index}</p>
 </div>
 
 <style>
@@ -42,8 +46,21 @@
     min-width: 5rem;
   }
 
+  .even-cell {
+    background-color: #ffffff;
+  }
+
+  .odd-cell {
+    background-color: #f0f0f0;
+  }
+
   .character {
     font-size: 5em;
+  }
+
+  .index {
+    font-size: small;
+    color: darkgray;
   }
 
   .special-character {
@@ -52,18 +69,5 @@
 
   .number-character {
     color: cornflowerblue;
-  }
-
-  .number {
-    font-size: small;
-    color: darkgray;
-  }
-
-  .even-cell {
-    background-color: #ffffff;
-  }
-
-  .odd-cell {
-    background-color: #f0f0f0;
   }
 </style>
