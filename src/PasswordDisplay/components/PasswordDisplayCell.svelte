@@ -1,15 +1,34 @@
 <script>
+  import { fly } from 'svelte/transition';
+
   export let character;
   export let index;
 
   function isSpecialPasswordCharacter(char) {
     const specialPasswordCharacters = ` !"#$%&'()*+,-./:;<=>?@[\\]^_\`{|}~`;
-    return [...specialPasswordCharacters].find(char);
+    return [...specialPasswordCharacters].includes(char);
+  }
+
+  function isNumber(char) {
+    return !isNaN(char);
+  }
+
+  function handleSpecial() {
+    return isSpecialPasswordCharacter(character) ? 'special-character' : '';
+  }
+
+  function handleNumber() {
+    return isNumber(character) ? 'number-character' : '';
   }
 </script>
 
-<div class="container {index % 2 === 0 ? 'even-cell' : 'odd-cell'}">
-  <p class="character {() => isSpecialPasswordCharacter(character) ? 'special-character' : ''}">{character}</p>
+<div
+  transition:fly={{ y: 50, duration: 100 }}
+  class="container {index % 2 === 0 ? 'even-cell' : 'odd-cell'}"
+>
+  <p class="character {handleSpecial()} {handleNumber()}">
+    {character}
+  </p>
   <p class="number">{index}</p>
 </div>
 
@@ -29,6 +48,10 @@
 
   .special-character {
     color: red;
+  }
+
+  .number-character {
+    color: cornflowerblue;
   }
 
   .number {
