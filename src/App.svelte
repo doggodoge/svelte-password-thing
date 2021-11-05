@@ -1,5 +1,5 @@
 <script>
-  import PasswordDisplay from './PasswordDisplay/PasswordDisplay.svelte';
+  import PasswordDisplay from './components/PasswordDisplay/PasswordDisplay.svelte';
 
   let password = '';
 </script>
