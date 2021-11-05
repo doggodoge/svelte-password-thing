@@ -1,13 +1,13 @@
 <script>
-  import PasswordDisplay from "./PasswordDisplay/PasswordDisplay.svelte";
+  import PasswordDisplay from './PasswordDisplay/PasswordDisplay.svelte';
 
-  let password = 'Simple Test';
+  let password = '';
 </script>
 
 <main>
   <h1>Cool <span class="cool-text">Pass</span></h1>
-  <input bind:value={password} type="text">
-  <PasswordDisplay password={password} />
+  <input bind:value={password} type="text" />
+  <PasswordDisplay {password} />
 </main>
 
 <style>
