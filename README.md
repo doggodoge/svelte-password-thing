@@ -1,4 +1,6 @@
-# svelte password thing
+Archived on GitHub and moved to https://git.sr.ht/~gary_moore/svelte-password-thing
+
+    # svelte password thing
 
 This is a little test rewriting that simple large password thing in svelte, just to see what the development experience is like with this framework.
 
